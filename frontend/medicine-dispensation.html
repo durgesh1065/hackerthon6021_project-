@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Dispensation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Medicine Dispensation</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Medicine Dispensation</h2>
+            <form id="dispense-form">
+                <input type="text" id="dispense-patient-name" placeholder="Enter patient name" required>
+                <input type="text" id="medicine" placeholder="Enter medicine" required>
+                <button type="submit">Dispense Medicine</button>
+            </form>
+            <h3>Available Medicines</h3>
+            <ul id="medicine-list"></ul>
+            <button onclick="window.location.href='index.html'">Back to Dashboard</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hospital Management System</p>
+    </footer>
+
+    <script src="medicine-dispensation.js"></script>
+</body>
+</html>

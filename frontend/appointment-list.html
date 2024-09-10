@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment List</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .eye-icon {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .medication-section {
+            display: none;
+            margin-top: 10px;
+        }
+        .medication-list {
+            margin-top: 10px;
+        }
+        .medication-item {
+            margin-bottom: 5px;
+        }
+        .plus-button {
+            cursor: pointer;
+            color: blue;
+            margin-left: 10px;
+        }
+        .submit-button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Appointment List</h1>
+    </header>
+
+    <main>
+        <section id="appointment-list-section">
+            <h2>List of Admitted Patients</h2>
+            <ul id="appointment-list">
+                <!-- Patient details will be displayed here -->
+            </ul>
+            <button onclick="window.location.href='index.html'">Back to Dashboard</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hospital Management System</p>
+    </footer>
+
+    <script>
+        // Retrieve patient details from local storage
+        const appointmentList = JSON.parse(localStorage.getItem('admittedPatients')) || [];
+        const appointmentListElement = document.getElementById('appointment-list');
+
+        appointmentList.forEach((patient, index) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                Name: ${patient.name}, Age: ${patient.age}, Reason for Admission: ${patient.reason}
+                <span class="eye-icon" onclick="toggleMedicationSection(${index})">👁️</span>
+                <div id="medication-section-${index}" class="medication-section">
+                    <h3>Medications for ${patient.name}</h3>
+                    <div id="medication-list-${index}" class="medication-list">
+                        <div class="medication-item">
+                            <input type="text" placeholder="Enter medication name" class="medication-input">
+                        </div>
+                    </div>
+                    <span class="plus-button" onclick="addMedicationField(${index})">+ Add Medication</span>
+                    <button class="submit-button" onclick="submitMedications(${index})">Submit Medications</button>
+                </div>
+            `;
+            appointmentListElement.appendChild(listItem);
+        });
+
+        function toggleMedicationSection(index) {
+            const section = document.getElementById(`medication-section-${index}`);
+            if (section.style.display === 'none' || !section.style.display) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        function addMedicationField(index) {
+            const medicationList = document.getElementById(`medication-list-${index}`);
+            const newMedicationItem = document.createElement('div');
+            newMedicationItem.className = 'medication-item';
+            newMedicationItem.innerHTML = `<input type="text" placeholder="Enter medication name" class="medication-input">`;
+            medicationList.appendChild(newMedicationItem);
+        }
+
+        function submitMedications(index) {
+            const medicationInputs = document.querySelectorAll(`#medication-list-${index} .medication-input`);
+            const medications = [];
+            medicationInputs.forEach(input => {
+                if (input.value.trim()) {
+                    medications.push(input.value.trim());
+                }
+            });
+            if (medications.length > 0) {
+                alert(`Medications for patient ${index + 1}: ${medications.join(', ')}`);
+                // Here, you can also send the medications to the server or store them as needed
+            } else {
+                alert('No medications entered.');
+            }
+        }
+    </script>
+</body>
+</html>

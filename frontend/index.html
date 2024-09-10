@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            position: relative;
+            height: 120px; /* Adjust the height if needed */
+            background-color: #f0f0f0; /* Light background color */
+            padding: 10px;
+        }
+
+        .header img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            max-height: 100px; /* Adjust the height of the image as needed */
+        }
+        .header img.flag-image {
+        position: absolute;
+        top: 10px;
+        right: 10px; /* Positioning the flag image on the right corner */
+        max-height: 40px; /* Adjust the height of the flag image as needed */
+    }
+
+        .login-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        
+
+        .login-button {
+            background-color: yellow; /* Yellow background color */
+            color: black; /* Text color */
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #FFD700; /* Darker yellow on hover */
+        }
+
+        .navbar {
+            background-color: #003366; /* Background color of the rectangular box */
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white; /* Text color */
+            font-size: 16px;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #45a049; /* Hover effect */
+        }
+
+        .center-image {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0; /* Adjust margins if needed */
+        }
+
+        .center-image img {
+            max-width: 100%; /* Ensure the image scales correctly */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+      
+        <img src="images/logo2.jpg" alt="logo"  >
+        
+        
+
+
+        <div class="login-container">
+            
+            <a href="login.html" class="login-button">Login</a>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Dashboard</a>
+        <a href="Department.html">Departments</a>
+        <a href="Medicine.html">Medicine</a>
+        <a href="study_of_dispensation.html">study of dispensation</a>
+        <a href="About-us.html">About us</a>
+         
+     
+    </div>
+
+    <div class="center-image">
+        <img src="images/middle.jpg" alt="Center Image">
+    </div>
+
+</body>
+</html>

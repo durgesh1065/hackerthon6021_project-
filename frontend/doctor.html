@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Doctor Profile</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        
+        <a href="appointment-list.html">appointment-list</a>
+        <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+        
+        
+    </div>
+
+    <h1>Doctor Profile</h1>
+    <form id="doctor-form">
+        <label for="patientID">Patient ID:</label>
+        <input type="text" id="patientID" name="patientID" required><br><br>
+
+        <label for="diagnosis">Diagnosis:</label><br>
+        <textarea id="diagnosis" name="diagnosis" required></textarea><br><br>
+
+        <button type="submit">Submit Diagnosis</button>
+    </form>
+
+    <script src="doctor.js"></script>
+</body>
+</html>

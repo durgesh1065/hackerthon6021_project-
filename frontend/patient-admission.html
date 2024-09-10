@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Admission</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Dashboard</a>
+        <a href="bed-availability.html">Bed Availability</a>
+        <a href="patient-admission.html">Patient Admission</a>
+    </div>
+    <header>
+        <h1>Patient Admission</h1>
+    </header>
+
+    <main>
+      
+            
+            
+
+           
+        </section>
+        
+        <!-- Patient Admission Section -->
+        <section id="patient-admission">
+            <h2>Admit a Patient</h2>
+            <form id="admission-form">
+                <label for="patientName">Name:</label>
+                <input type="text" id="patientName" name="patientName" required><br><br>
+
+                <label for="patientAge">Age:</label>
+                <input type="number" id="patientAge" name="patientAge" required><br><br>
+
+                <label for="admissionReason">Reason for Admission:</label><br>
+                <textarea id="admissionReason" name="admissionReason" required></textarea><br><br>
+
+                <button type="submit">Admit Patient</button>
+            </form>
+            <aside class="quick-stats"></aside>
+                <h3>Quick Stats</h3>
+                <ul>
+                    <p>Patients in Queue: <span id="patients-queue-count">0</span></p>
+            
+            <!-- Queue List -->
+            <h3>Queue</h3>
+            <ul id="queue-list">
+                <!-- Queue items will be appended here -->
+            </ul>
+
+            <!-- Quick Stats -->
+                    <li>Total Patients: <span id="total-patients">0</span></li>
+                    <li>Admitted Patients: <span id="total-admitted">0</span></li>
+                    <li>Available Beds: <span id="available-beds">10</span></li>
+                    <li>Average Wait Time: <span id="average-wait-time">0 min</span></li>
+                </ul>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hospital Management System</p>
+    </footer>
+
+    <script>
+        // Patient Admission Form Submission
+        document.getElementById('admission-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const patientName = document.getElementById('patientName').value;
+            const patientAge = document.getElementById('patientAge').value;
+            const admissionReason = document.getElementById('admissionReason').value;
+
+            // Retrieve existing patients or initialize as empty array
+            const admittedPatients = JSON.parse(localStorage.getItem('admittedPatients')) || [];
+
+            // Add new patient to the array
+            admittedPatients.push({
+                name: patientName,
+                age: patientAge,
+                reason: admissionReason
+            });
+
+            // Store updated list back in local storage
+            localStorage.setItem('admittedPatients', JSON.stringify(admittedPatients));
+
+            alert('Patient admitted successfully!');
+        });
+
+        // OPD Queuing System
+        const checkinForm = document.getElementById('checkin-form');
+        const queueList = document.getElementById('queue-list');
+        const patientsQueueCount = document.getElementById('patients-queue-count');
+        const totalPatients = document.getElementById('total-patients');
+        const totalAdmitted = document.getElementById('total-admitted');
+        const averageWaitTime = document.getElementById('average-wait-time');
+
+        let queue = [];
+        let admittedCount = 0;
+
+        checkinForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const patientName = document.getElementById('patient-name').value;
+            const department = document.getElementById('department').value;
+
+            queue.push({ name: patientName, department: department });
+
+            const listItem = document.createElement('li');
+            listItem.textContent = `${patientName} - ${department}`;
+            queueList.appendChild(listItem);
+
+            patientsQueueCount.textContent = queue.length;
+            totalPatients.textContent = queue.length + admittedCount;
+
+            // Update average wait time
+            averageWaitTime.textContent = `${queue.length * 5} min`; // assuming each patient takes 5 minutes
+        });
+    </script>
+</body>
+</html>

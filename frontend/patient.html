@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to CSS file for styling -->
+   
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div>
+            <a href="index.html">Dashboard</a>
+            <a href="bed-availability.html">Bed Availability</a>
+            <a href="patient-admission.html">Patient Admission</a>
+        </div>
+        <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <h1>Patient Profile</h1>
+    <form id="patient-form">
+        <label for="patientName">Name:</label>
+        <input type="text" id="patientName" name="patientName" required><br><br>
+
+        <label for="patientAge">Age:</label>
+        <input type="number" id="patientAge" name="patientAge" required><br><br>
+
+        <label for="patientSymptoms">Symptoms:</label><br>
+        <textarea id="patientSymptoms" name="patientSymptoms" required></textarea><br><br>
+
+        <!-- Critical Condition Checkbox -->
+        <label for="patientCritical">Is the condition critical?</label>
+        <input type="checkbox" id="patientCritical" name="patientCritical"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+   
+    <script src="patient.js"></script>
+</body>
+</html>

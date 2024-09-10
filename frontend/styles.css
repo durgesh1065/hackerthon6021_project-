@@ -1,0 +1,194 @@
+/* styles.css */
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background-color:#003366; /* Updated to match the new green theme */
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+/* Container for main content */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section styling */
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+h2 {
+    color: #007bff; /* Use the original blue color for headings */
+    margin-top: 0;
+}
+
+/* Navigation links */
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007bff; /* Use the original blue color for links */
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* List styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Input and button styling */
+input[type="text"], input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color:#003366; /* Updated to match the new green theme */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #003366; /* Darker green on hover */
+}
+
+/* Bed grid styling */
+#bed-grid, #nurse-bed-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.bed {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bed.green {
+    background-color: #003366;
+    color: white;
+}
+
+.bed.red {
+    background-color: #f44336;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* Delete button styling */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Queue list and admitted patients list styling */
+#queue-list, #nurse-admitted-patients-list {
+    list-style: none;
+    padding: 0;
+}
+
+#queue-list li, #nurse-admitted-patients-list li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #003366; /* Background color of the rectangular box */
+    padding: 10px;
+    display: flex;
+    justify-content: center; /* Center the nav links */
+    align-items: center;
+}
+
+.navbar a {
+    color: white; /* Text color */
+    font-size: 16px;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #45a049; /* Hover effect */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 1rem;
+}
+
+.navbar a {
+    color: white;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+.navbar .logout-btn {
+    margin-left: auto;
+}
+
+.logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}

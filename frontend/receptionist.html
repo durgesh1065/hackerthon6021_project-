@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receptionist Profile</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your stylesheet -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="appointment-list.html">appointment-list</a>
+        <a href="bed-availability.html">Bed Availability</a>
+        <a href="patient-admission.html">Patient Admission</a>
+        <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <!-- Receptionist Profile Form -->
+    <h1>Receptionist Profile</h1>
+    <form id="receptionist-form">
+        <label for="patientID">Patient ID:</label>
+        <input type="text" id="patientID" name="patientID" required><br><br>
+
+        <label for="patientStatus">Status:</label>
+        <select id="patientStatus" name="patientStatus" required>
+            <option value="admitted">Admitted</option>
+            <option value="discharged">Discharged</option>
+            <option value="awaiting">Awaiting</option>
+        </select><br><br>
+
+        <button type="submit">Update Status</button>
+    </form>
+
+    <script src="receptionist.js"></script>
+</body>
+</html>

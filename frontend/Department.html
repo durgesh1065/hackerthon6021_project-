@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Departments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .department-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .department-list li {
+            background: #e2e2e2;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .department-list li:hover {
+            background: #d1d1d1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Medical Departments</h1>
+        <ul id="department-list" class="department-list">
+            <!-- Departments will be added here dynamically -->
+        </ul>
+    </div>
+
+    <script>
+        // List of medical departments
+        const departments = [
+             'Anesthesiology - Focuses on pain management and anesthesia during surgery.',
+'Gastroenterology - Deals with digestive system disorders.',
+'Obstetrics and Gynecology - Concerned with pregnancy, childbirth, and female reproductive health.',
+'Cardiology - Focuses on heart and cardiovascular diseases.',
+'ENT (Ear, Nose, and Throat) - Specializes in the treatment of ear, nose, throat, and related structures.',
+'General Surgery - Encompasses surgical procedures on various body systems.',
+'Internal Medicine - Deals with the prevention, diagnosis, and treatment of adult diseases.',
+'Pediatrics - Focuses on medical care for infants, children, and adolescents.',
+'Cardiothoracic Surgery - Involves surgical treatment of diseases affecting the heart, lungs, and chest.',
+'Dentistry - Concerned with oral health, including teeth and gums.',
+'Dermatology - Deals with skin, hair, and nail disorders.',
+'Emergency Medicine - Provides urgent care for acute illnesses and injuries.',
+'Neurology - Focuses on disorders of the nervous system.',
+'Plastic Surgery - Involves reconstructive or cosmetic surgical procedures.',
+'Psychiatry - Concerned with the diagnosis, treatment, and prevention of mental health conditions.',
+'Diagnostic Radiology - Uses imaging techniques to diagnose diseases.',
+'Anatomy - Studies the structure of the human body.',
+'Geriatrics - Focuses on healthcare for the elderly.',
+'Endocrinology - Deals with hormone-related disorders.',
+'Infectious Diseases - Specializes in diseases caused by infectious agents.',
+'Allergies - Concerned with diagnosing and treating allergic conditions.',
+'Blood Bank - Manages blood donations, testing, and storage for transfusions.',
+'Intensive Care Medicine - Focuses on critically ill patients requiring intensive monitoring.',
+'Hematology - Deals with blood-related disorders.'
+        ];
+
+        // Function to display departments
+        function displayDepartments() {
+            const listElement = document.getElementById('department-list');
+            departments.forEach(department => {
+                const li = document.createElement('li');
+                li.textContent = department;
+                listElement.appendChild(li);
+            });
+        }
+
+        // Call the function to display the departments
+        displayDepartments();
+    </script>
+</body>
+</html>

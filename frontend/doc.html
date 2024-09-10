@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <h1>Doctor's Page</h1>
+
+    <h2>Booked Beds</h2>
+    <table id="booked-bed-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Bed Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Booked beds will be populated here -->
+        </tbody>
+    </table>
+
+    <h2>Unbooked Beds</h2>
+    <table id="unbooked-bed-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Bed Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Unbooked beds will be populated here -->
+        </tbody>
+    </table>
+
+    <h2>Patient Queue</h2>
+    <ul id="queue-list">
+        <!-- Queue will be populated here -->
+    </ul>
+
+    <script>
+        // Fetch and display booked beds
+        function fetchBookedBeds() {
+            fetch('http://localhost:3000/patients')
+                .then(response => response.json())
+                .then(data => {
+                    const bookedBedTable = document.getElementById('booked-bed-table').getElementsByTagName('tbody')[0];
+                    bookedBedTable.innerHTML = ''; // Clear existing rows
+
+                    data.forEach(patient => {
+                        const row = bookedBedTable.insertRow();
+                        row.insertCell(0).textContent = patient.id;
+                        row.insertCell(1).textContent = patient.name;
+                        row.insertCell(2).textContent = patient.bed_number;
+                    });
+                })
+                .catch(error => console.error('Error fetching booked beds:', error));
+        }
+
+        // Fetch and display unbooked beds
+        function fetchUnbookedBeds() {
+            fetch('http://localhost:3000/beds')
+                .then(response => response.json())
+                .then(data => {
+                    const unbookedBedTable = document.getElementById('unbooked-bed-table').getElementsByTagName('tbody')[0];
+                    unbookedBedTable.innerHTML = ''; // Clear existing rows
+
+                    data.forEach(bed => {
+                        if (bed.status === 'available') {
+                            const row = unbookedBedTable.insertRow();
+                            row.insertCell(0).textContent = bed.id;
+                            row.insertCell(1).textContent = bed.bed_number;
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching unbooked beds:', error));
+        }
+
+        // Fetch and display patient queue
+        function fetchPatientQueue() {
+            fetch('http://localhost:3000/get-queue')
+                .then(response => response.json())
+                .then(data => {
+                    const queueList = document.getElementById('queue-list');
+                    queueList.innerHTML = ''; // Clear existing list
+
+                    data.forEach(queueItem => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = queueItem.name;
+                        queueList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching patient queue:', error));
+        }
+
+        // Initial fetch of data
+        fetchBookedBeds();
+        fetchUnbookedBeds();
+        fetchPatientQueue();
+    </script>
+</body>
+</html>

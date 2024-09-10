@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bed Availability</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bed Availability</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Bed Availability</h2>
+            <div class="bed-stats">
+                <div>Total Beds: <span id="total-beds">10</span></div>
+                <div>Occupied Beds: <span id="occupied-beds">2</span></div>
+                <div>Available Beds: <span id="available-beds">8</span></div>
+            </div>
+            <form id="admit-form">
+                <input type="text" id="admit-patient-name" placeholder="Enter patient name" required>
+                <input type="text" id="admit-department" placeholder="Enter department" required>
+                <select id="available-bed">
+                    <option value="3">Bed 3</option>
+                    <option value="4">Bed 4</option>
+                    <option value="5">Bed 5</option>
+                    <!-- Add more beds as needed -->
+                </select>
+                <button type="submit">Admit Patient</button>
+            </form>
+            <div id="bed-grid">
+                <!-- Bed grid will be populated by JavaScript -->
+            </div>
+            <h3>Admitted Patients</h3>
+            <ul id="admitted-patients">
+                <!-- Admitted patients will be populated by JavaScript -->
+            </ul>
+            <button onclick="window.location.href='index.html'">Back to Dashboard</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hospital Management System</p>
+    </footer>
+
+    <script src="bed-availability.js"></script>
+</body>
+</html>
